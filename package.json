@@ -1,0 +1,40 @@
+{
+ "name": "enrollment-management-system",
+ "version": "1.0.0",
+ "description": "",
+ "main": "server.js",
+ "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "nodemon backend/server.js",
+  "start:prod": "SET NODE_ENV=production&& nodemon backend/server.js",
+  "start:dev": "concurrently \"npm run start\" \"npm run client\"",
+  "client": "npm start --prefix frontend"
+ },
+ "author": "Sodiq Farayola",
+ "license": "MIT",
+ "dependencies": {
+  "@headlessui/react": "^1.4.1",
+  "@heroicons/react": "^1.0.4",
+  "bcryptjs": "^2.4.3",
+  "colors": "^1.4.0",
+  "cookie-parser": "^1.4.5",
+  "cors": "^2.8.5",
+  "dotenv": "^10.0.0",
+  "express": "^4.17.1",
+  "jsonwebtoken": "^8.5.1",
+  "mongoose": "^5.13.5",
+  "morgan": "^1.10.0",
+  "multer": "^1.4.2",
+  "naija-state-local-government": "^1.1.2",
+  "react-table": "^7.7.0",
+  "redux-devtools-extension": "^2.13.9",
+  "slugify": "^1.6.0",
+  "validator": "^13.6.0"
+ },
+ "devDependencies": {
+  "autoprefixer": "^9.8.6",
+  "concurrently": "^6.2.0",
+  "postcss": "^7.0.36",
+  "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.9"
+ }
+}

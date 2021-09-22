@@ -1,0 +1,9 @@
+.history
+node_modules
+frontend-tailwind
+sss
+config.env
+
+/frontend/.history
+# /frontend/frontend-tailwind
+/frontend/node_modules
