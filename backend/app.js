@@ -26,6 +26,18 @@ app.use('/api/v1/enrollees', enrolleeRouter);
 app.use('/api/v1/centers', centerRouter);
 app.use('/api/v1/branches', branchRouter);
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(__dirname, 'frontend', 'build', 'index.html');
+  });
+} else {
+  app.get('/', (req, res, next) => {
+    res.status(200).send('API is running on port 4000');
+  });
+}
+
 app.all('*', (req, res, next) => {
   next(
     new AppError(

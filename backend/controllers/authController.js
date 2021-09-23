@@ -45,6 +45,12 @@ exports.superAdmin = catchAsync(async (req, res, next) => {
     password,
     confirmPassword,
     nin,
+    gender,
+    address,
+    userState,
+    city,
+    lga,
+    country,
   } = req.body;
 
   const details = {
@@ -56,6 +62,12 @@ exports.superAdmin = catchAsync(async (req, res, next) => {
     password,
     confirmPassword,
     nin,
+    gender,
+    address,
+    userState,
+    city,
+    lga,
+    country,
   };
 
   const superAdmin = await User.create(details);
@@ -69,6 +81,9 @@ exports.superAdmin = catchAsync(async (req, res, next) => {
   // newActivity.user = superAdmin._id;
 
   // await newActivity.save();
+
+  superAdmin.role = 'super-admin';
+  await superAdmin.save();
 
   createSendToken(superAdmin, 201, res);
 });
@@ -84,11 +99,18 @@ exports.signUp = catchAsync(async (req, res, next) => {
     confirmPassword,
     nin,
     role,
+    address,
+    userState,
+    lga,
+    city,
+    country,
+    gender,
     centerName,
     centerAddress,
     centerCity,
     centerState,
     centerEmail,
+    centerLga,
   } = req.body;
 
   const details = {
@@ -100,6 +122,12 @@ exports.signUp = catchAsync(async (req, res, next) => {
     confirmPassword,
     nin,
     phone,
+    address,
+    userState,
+    lga,
+    city,
+    country,
+    gender,
   };
 
   const centerDetails = {
@@ -154,6 +182,10 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new AppError('Please provide the email and password', 400));
 
   const user = await User.findOne({ email }).select('+password');
+
+  if (!user) {
+    return next(new AppError('Email not found on this server', 404));
+  }
 
   const checked = await user.comparePasswords(password, user.password);
 

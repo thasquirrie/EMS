@@ -29,12 +29,13 @@ import Breadcrumbs from '../../components/Common/Breadcrumb';
 // import { registerUser, registerUserFailed } from '../../store/actions';
 
 // Redux
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { Link } from 'react-router-dom';
 
 // import images
 // import logo from '../../assets/images/logo-sm-dark.png';
 import { signup } from '../../actions/userActions';
+import Modal from '../../components/Modal';
 
 const Register = (props) => {
   const [activeTab, setactiveTab] = useState(1);
@@ -78,6 +79,10 @@ const Register = (props) => {
 
   const dispatch = useDispatch();
 
+  const userLogin = useSelector((state) => state.userLogin);
+
+  const { error: errorLogin } = userLogin;
+
   function toggleTab(tab) {
     if (activeTab !== tab) {
       if (tab >= 1 && tab <= 3) {
@@ -114,7 +119,14 @@ const Register = (props) => {
 
   return (
     <React.Fragment>
-      {console.log(error)};
+      {errorLogin && (
+        <Modal
+          type='error'
+          title='Signup Error'
+          message={error}
+          action='Sign up again'
+        />
+      )}
       <div className='home-btn d-none d-sm-block'>
         <Link to='/' className='text-dark'>
           <i className='fas fa-home h2'></i>
@@ -706,7 +718,7 @@ const Register = (props) => {
                         </li>
                         <li
                           className={
-                            activeTab === 2 ? 'next disabled hidden' : 'next'
+                            activeTab >= 2 ? 'next disabled hidden' : 'next'
                           }
                         >
                           <Link

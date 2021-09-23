@@ -115,6 +115,7 @@ import Centers from '../pages/Centers/index';
 import EnrolleeDetails from '../pages/Enrollees/EnrolleeDetails';
 import AddUser from '../pages/Users/AddUser';
 import UserDetails from '../pages/Users/UserDetails';
+import SuperAdminRegister from '../pages/Authentication/SuperAdminRegister';
 
 const userRoutes = [
   //  { path: '/dashboard', component: Dashboard },
@@ -220,6 +221,7 @@ const authRoutes = [
   { path: '/login', component: Login },
   { path: '/forgot-password', component: ForgetPwd },
   { path: '/register', component: Register },
+  { path: '/super-admin', component: SuperAdminRegister },
 
   { path: '/pages-maintenance', component: PagesMaintenance },
   { path: '/pages-comingsoon', component: PagesComingsoon },

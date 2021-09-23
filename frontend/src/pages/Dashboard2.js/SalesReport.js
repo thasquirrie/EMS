@@ -64,7 +64,7 @@ const Breadcrumb = (props) => {
             <Col sm={7}>
               <div>
                 <p className='mb-2'>01 Jan - 31 Jan, 2021</p>
-                <h4 className='text-lg'>{centers && centers.length}</h4>
+                <h4 className='text-lg'>{centers ? centers.length : 0}</h4>
 
                 <p className='mt-4 mb-0'>
                   <span className='badge badge-soft-success me-2'>

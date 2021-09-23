@@ -71,6 +71,56 @@ export const signup = (data) => async (dispatch) => {
   }
 };
 
+export const superAdminSignup = (data) => async (dispatch) => {
+  try {
+    dispatch({
+      type: USER_SIGNUP_REQUEST,
+    });
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    const {
+      data: {
+        data: { user },
+        token,
+      },
+    } = await axios({
+      method: 'POST',
+      url: 'http://localhost:4000/api/v1/users/superAdmin',
+      data,
+      config,
+    });
+
+    // const { user, token } = data.data;
+    // console.log(data);
+    // console.log('token:', token);
+
+    dispatch({
+      type: USER_SIGNUP_SUCCESS,
+      payload: { user, token },
+    });
+
+    dispatch({
+      type: USER_LOGIN_SUCCESS,
+      payload: { user, token },
+    });
+
+    localStorage.setItem('userInfo', JSON.stringify({ user, token }));
+  } catch (error) {
+    dispatch({
+      type: USER_SIGNUP_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.response,
+    });
+  }
+};
+
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch(USER_LOGIN_REQUEST);

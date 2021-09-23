@@ -71,7 +71,8 @@ exports.updateUser = catchAsync(async (req, res, next) => {
     'role',
     'center',
     'address',
-    'userState'
+    'userState',
+    'approved'
   );
 
   console.log(filteredFields);

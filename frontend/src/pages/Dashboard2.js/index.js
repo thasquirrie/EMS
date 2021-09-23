@@ -221,7 +221,7 @@ const Dashboard = ({ history, match }) => {
           </Col>
         </Row> */}
         <Row>
-          <Col lg={4}>
+          <Col lg={12}>
             <ActivityComp />
           </Col>
           {/* <Col lg={4}>
