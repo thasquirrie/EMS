@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { userRoutes, authRoutes } from './routes/allRoutes';
 import Home from './pages/Home/index';
 import NotApprovedPage from './pages/NotApprovedPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 // Import all middleware
 import Authmiddleware from './routes/middleware/Authmiddleware';
@@ -79,6 +80,13 @@ const App = (props) => {
             path='/'
             layout={NonAuthLayout}
             component={Home}
+            isAuthProtected={true}
+            exact
+          />
+          <Authmiddleware
+            path='*'
+            layout={NonAuthLayout}
+            component={NotFoundPage}
             isAuthProtected={true}
             exact
           />

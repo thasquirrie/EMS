@@ -25,13 +25,13 @@ import TasksCreate from '../pages/Tasks/tasks-create';
 
 //Pages
 import PagesStarter from '../pages/Utility/pages-starter';
-import PagesMaintenance from '../pages/Utility/pages-maintenance';
-import PagesComingsoon from '../pages/Utility/pages-comingsoon';
+// import PagesMaintenance from '../pages/Utility/pages-maintenance';
+// import PagesComingsoon from '../pages/Utility/pages-comingsoon';
 import PagesTimeline from '../pages/Utility/pages-timeline';
 import PagesFaqs from '../pages/Utility/pages-faqs';
 import PagesPricing from '../pages/Utility/pages-pricing';
-import Pages404 from '../pages/Utility/pages-404';
-import Pages500 from '../pages/Utility/pages-500';
+// import Pages404 from '../pages/Utility/pages-404';
+// import Pages500 from '../pages/Utility/pages-500';
 import PagesInvoice from '../pages/Utility/invoice';
 
 //Ui
@@ -223,10 +223,11 @@ const authRoutes = [
   { path: '/register', component: Register },
   { path: '/super-admin', component: SuperAdminRegister },
 
-  { path: '/pages-maintenance', component: PagesMaintenance },
-  { path: '/pages-comingsoon', component: PagesComingsoon },
-  { path: '/pages-404', component: Pages404 },
-  { path: '/pages-500', component: Pages500 },
+  // { path: '/pages-maintenance', component: PagesMaintenance },
+  // { path: '/pages-comingsoon', component: PagesComingsoon },
+  // { path: '*', component: Pages404 },
+  // { path: '/pages-500', component: Pages500 },
+  // { path: '', component: NotFoundPage },
 
   // Authentication Inner
   // { path: '/pages-login', component: Login1 },
