@@ -47,54 +47,54 @@ const App = (props) => {
   return (
     <React.Fragment>
       <Router>
-        <Switch>
-          {authRoutes.map((route, idx) => (
-            <Authmiddleware
-              path={route.path}
-              layout={NonAuthLayout}
-              component={route.component}
-              key={idx}
-              isAuthProtected={false}
-            />
-          ))}
+        {/* <Switch> */}
+        {authRoutes.map((route, idx) => (
+          <Authmiddleware
+            path={route.path}
+            layout={NonAuthLayout}
+            component={route.component}
+            key={idx}
+            isAuthProtected={false}
+          />
+        ))}
 
-          {userRoutes.map((route, idx) => (
-            <Authmiddleware
-              path={route.path}
-              layout={VerticalLayout}
-              component={route.component}
-              key={idx}
-              isAuthProtected={true}
-              exact
-            />
-          ))}
-          {/* <Route path='/' component={Home} exact /> */}
+        {userRoutes.map((route, idx) => (
           <Authmiddleware
-            path='/not-approved'
-            layout={NonAuthLayout}
-            component={NotApprovedPage}
+            path={route.path}
+            layout={VerticalLayout}
+            component={route.component}
+            key={idx}
             isAuthProtected={true}
             exact
           />
-          <Authmiddleware
-            path='/'
-            layout={NonAuthLayout}
-            component={Home}
-            isAuthProtected={true}
-            exact
-          />
-          <Authmiddleware
-            path='*'
-            layout={NonAuthLayout}
-            component={NotFoundPage}
-            isAuthProtected={true}
-            exact
-          />
-          {/* <Authmiddleware
+        ))}
+        {/* <Route path='/' component={Home} exact /> */}
+        <Authmiddleware
+          path='/not-approved'
+          layout={NonAuthLayout}
+          component={NotApprovedPage}
+          isAuthProtected={true}
+          exact
+        />
+        <Authmiddleware
+          path='/'
+          layout={NonAuthLayout}
+          component={Home}
+          isAuthProtected={true}
+          exact
+        />
+        <Authmiddleware
+          path='*'
+          layout={NonAuthLayout}
+          component={NotFoundPage}
+          isAuthProtected={true}
+          exact
+        />
+        {/* <Authmiddleware
             paht
           /> */}
 
-          {/* {authRoutes.map((route, idx) => (
+        {/* {authRoutes.map((route, idx) => (
             <Route
               render={() => {
                 console.log(route.component);
@@ -119,7 +119,7 @@ const App = (props) => {
             />
           ))}
           <Route path='/' component={Home} exact /> */}
-        </Switch>
+        {/* </Switch> */}
       </Router>
     </React.Fragment>
     // <Router>

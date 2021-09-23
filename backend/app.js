@@ -26,11 +26,13 @@ app.use('/api/v1/enrollees', enrolleeRouter);
 app.use('/api/v1/centers', centerRouter);
 app.use('/api/v1/branches', branchRouter);
 
+console.log(__dirname);
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../frontend/build')));
 
   app.get('*', (req, res) => {
-    res.sendFile(__dirname, 'frontend', 'build', 'index.html');
+    res.sendFile(path.join(__dirname, '../frontend', 'build', 'index.html'));
   });
 } else {
   app.get('/', (req, res, next) => {
