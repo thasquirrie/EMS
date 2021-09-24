@@ -31,7 +31,7 @@ export const addCenter = (data) => async (dispatch, getState) => {
       },
     } = await axios({
       method: 'POST',
-      url: 'http://localhost:4000/api/v1/centers',
+      url: '/api/v1/centers',
       data,
       headers,
     });
@@ -83,7 +83,7 @@ export const centersList = () => async (dispatch, getState) => {
       },
     } = await axios({
       method: 'GET',
-      url: 'http://localhost:4000/api/v1/centers',
+      url: '/api/v1/centers',
       headers,
     });
 
