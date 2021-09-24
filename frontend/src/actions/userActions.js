@@ -90,7 +90,7 @@ export const superAdminSignup = (data) => async (dispatch) => {
       },
     } = await axios({
       method: 'POST',
-      url: 'http://localhost:4000/api/v1/users/superAdmin',
+      url: '/api/v1/users/superAdmin',
       data,
       config,
     });
@@ -188,7 +188,7 @@ export const usersList = () => async (dispatch, getState) => {
       },
     } = await axios({
       method: 'GET',
-      url: 'http://localhost:4000/api/v1/users',
+      url: '/api/v1/users',
       headers,
     });
 
@@ -237,7 +237,7 @@ export const addUser = (data) => async (dispatch, getState) => {
       },
     } = await axios({
       method: 'POST',
-      url: 'http://localhost:4000/api/v1/users/create-user',
+      url: '/api/v1/users/create-user',
       data,
       headers,
     });
@@ -287,7 +287,7 @@ export const getUser = (id) => async (dispatch, getState) => {
       },
     } = await axios({
       method: 'GET',
-      url: `http://localhost:4000/api/v1/users/${id}`,
+      url: `/api/v1/users/${id}`,
 
       headers,
     });
@@ -337,7 +337,7 @@ export const editUser = (id, data) => async (dispatch, getState) => {
       },
     } = await axios({
       method: 'PATCH',
-      url: `http://localhost:4000/api/v1/users/${id}`,
+      url: `/api/v1/users/${id}`,
       data,
       headers,
     });

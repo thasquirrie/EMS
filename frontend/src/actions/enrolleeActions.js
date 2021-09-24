@@ -37,7 +37,7 @@ export const createEnrollee = (data) => async (dispatch, getState) => {
       },
     } = await axios({
       method: 'POST',
-      url: 'http://localhost:4000/api/v1/enrollees',
+      url: '/api/v1/enrollees',
       data,
       headers,
     });
@@ -83,7 +83,7 @@ export const getEnrolleeDetails = (id) => async (dispatch, getState) => {
       },
     } = await axios({
       method: 'GET',
-      url: `http://localhost:4000/api/v1/enrollees/${id}`,
+      url: `/api/v1/enrollees/${id}`,
       headers,
     });
 
@@ -128,7 +128,7 @@ export const editEnrollee = (id, data) => async (dispatch, getState) => {
       },
     } = await axios({
       method: 'PATCH',
-      url: `http://localhost:4000/api/v1/enrollees/${id}`,
+      url: `/api/v1/enrollees/${id}`,
       data,
       headers,
     });
@@ -172,7 +172,7 @@ export const enrolleesList = () => async (dispatch, getState) => {
       },
     } = await axios({
       method: 'GET',
-      url: 'http://localhost:4000/api/v1/enrollees',
+      url: '/api/v1/enrollees',
       headers,
     });
 
